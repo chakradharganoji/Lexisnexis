@@ -35,12 +35,10 @@ public class Steps {
     @When("user opens URL {string}")
     public void user_opens_url(String url) {
         driver.get(url);
-//        driver.switchTo().frame(0);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("onetrust-accept-btn-handler")));
         element.click();
         driver.findElement(By.id("onetrust-accept-btn-handler")).click();
-//        driver.switchTo().defaultContent();
     }
 
     @Then("Page Title should be {string}")
